@@ -2,29 +2,7 @@
 
 function get_theme_blocks() {
     $blocks = [
-        'hero',
-        'page_header',
-        'rail_band',
-        'about_us',
-        'stats',
-        'services',
-        'image_strip',
-        'benefits',
-        'testimonials',
-        'video',
-        'recent_posts',
-        'faqs',
-        'contact',
-        'team',
-        'accreditations',
-        'cta',
-        'blog_editor',
-        'blog_faqs',
-        'blog_links',
-        'bus_for_good',
-        'testimonial',
-        'bus_for_good_widget',
-		'html',
+        
     ];
     return is_array($blocks) ? $blocks : [];
 }
