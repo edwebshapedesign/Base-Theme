@@ -1,0 +1,131 @@
+/* ============================================================
+   Local font declarations — Mind The AI Gap
+   Location: wp-content/themes/mtag/fonts/
+   Formats loaded: WOFF2, WOFF, TTF, OTF, EOT
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   Montserrat — 9 weights × 2 styles = 18 variants
+   ------------------------------------------------------------ */
+
+
+/* Light 300 */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Light.woff2') format('woff2'),
+       url('../fonts/Montserrat-Light.woff') format('woff'),
+       url('../fonts/Montserrat-Light.ttf') format('truetype'),
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Regular 400 */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Regular.woff2') format('woff2'),
+       url('../fonts/Montserrat-Regular.woff') format('woff'),
+       url('../fonts/Montserrat-Regular.ttf') format('truetype'),
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Medium 500 */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Medium.woff2') format('woff2'),
+       url('../fonts/Montserrat-Medium.woff') format('woff'),
+       url('../fonts/Montserrat-Medium.ttf') format('truetype'),
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* SemiBold 600 */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-SemiBold.woff2') format('woff2'),
+       url('../fonts/Montserrat-SemiBold.woff') format('woff'),
+       url('../fonts/Montserrat-SemiBold.ttf') format('truetype'),
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold 700 */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-Bold.woff2') format('woff2'),
+       url('../fonts/Montserrat-Bold.woff') format('woff'),
+       url('../fonts/Montserrat-Bold.ttf') format('truetype'),
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ------------------------------------------------------------
+   Source Sans 3 — 8 weights × 2 styles = 16 variants
+   (no Thin 100 in the uploaded set)
+   ------------------------------------------------------------ */
+
+/* Light 300 */
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('../fonts/SourceSans3-Light.woff2') format('woff2'),
+       url('../fonts/SourceSans3-Light.woff') format('woff'),
+       url('../fonts/SourceSans3-Light.ttf') format('truetype'),
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Regular 400 */
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('../fonts/SourceSans3-Regular.woff2') format('woff2'),
+       url('../fonts/SourceSans3-Regular.woff') format('woff'),
+       url('../fonts/SourceSans3-Regular.ttf') format('truetype'),
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium 500 */
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('../fonts/SourceSans3-Medium.woff2') format('woff2'),
+       url('../fonts/SourceSans3-Medium.woff') format('woff'),
+       url('../fonts/SourceSans3-Medium.ttf') format('truetype'),
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold 600 */
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('../fonts/SourceSans3-SemiBold.woff2') format('woff2'),
+       url('../fonts/SourceSans3-SemiBold.woff') format('woff'),
+       url('../fonts/SourceSans3-SemiBold.ttf') format('truetype'),
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold 700 */
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('../fonts/SourceSans3-Bold.woff2') format('woff2'),
+       url('../fonts/SourceSans3-Bold.woff') format('woff'),
+       url('../fonts/SourceSans3-Bold.ttf') format('truetype'),
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
