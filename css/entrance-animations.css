@@ -2,37 +2,47 @@
    Entrance animations — fade in up
    Elements fade + rise into place when they scroll into view.
    Pairs with entrance-animations.js
+
+   HOW BLOCKS OPT IN
+   Add data-animate to any element in a block's render.php:
+
+     <div class="my-block__content" data-animate>…</div>
+
+   Nothing else is required — no edits to this file or the JS. Siblings that
+   enter the viewport together are staggered top-to-bottom automatically.
+   The legacy class list below is kept for older templates.
    ========================================================================== */
 
 :root {
-  --fade-distance: 1.5rem;                       /* how far elements rise (swap for a --space token if you prefer) */
-  --fade-duration: 1.0s;                         /* how long the fade/rise takes */
+  --fade-distance: 1.5rem; /* how far elements rise (swap for a --space token if you prefer) */
+  --fade-duration: 1s; /* how long the fade/rise takes */
   --fade-easing: ease; /* gentle ease-out */
 }
 
 /* Hidden (pre-reveal) state.
    Scoped to .has-anim so NOTHING hides if JS is unavailable. */
-.has-anim :is(
-  .section-head,
-  .intro,
-  .btn,
-  .cta-banner,
-  .accreditations__row,
-  .services__grid,
-  .testimonials__viewport,
-  .video__frame,
-  .page-hero__intro,
-  .about__grid > *,
-  .posts__grid > *,
-  .stats__grid > *,
-  .benefits__grid > *,
-  .contact__grid > *,
-  .team-grid > *,
-  .archive-grid > *,
-  .accreditations__logos > *,
-  .gallery > *,
-  .faq__item
-) {
+.has-anim
+  :is(
+    [data-animate],
+    .section-head,
+    .intro,
+    .cta-banner,
+    .accreditations__row,
+    .services__grid,
+    .testimonials__viewport,
+    .video__frame,
+    .page-hero__intro,
+    .about__grid > *,
+    .posts__grid > *,
+    .stats__grid > *,
+    .benefits__grid > *,
+    .contact__grid > *,
+    .team-grid > *,
+    .archive-grid > *,
+    .accreditations__logos > *,
+    .gallery > *,
+    .faq__item
+  ) {
   opacity: 0;
   transform: translateY(var(--fade-distance)) scale(0.98);
   /* The transition + transition-delay are applied INLINE by the JS only while
@@ -40,7 +50,7 @@
      entrance from permanently overriding a component's own transition
      (e.g. the FAQ accordion's grid-template-rows animation). */
 }
- 
+
 /* Revealed state (same specificity, defined later, so it wins) */
 .has-anim .is-visible {
   opacity: 1;
@@ -49,27 +59,29 @@
 
 /* Respect users who prefer reduced motion: show everything, no movement */
 @media (prefers-reduced-motion: reduce) {
-  .has-anim :is(
-    .section-head,
-  .intro,
-  .btn,
-  .cta-banner,
-  .accreditations__row,
-  .services__grid,
-  .testimonials__viewport,
-  .video__frame,
-  .page-hero__intro,
-  .about__grid > *,
-  .posts__grid > *,
-  .stats__grid > *,
-  .benefits__grid > *,
-  .contact__grid > *,
-  .team-grid > *,
-  .archive-grid > *,
-  .accreditations__logos > *,
-  .gallery > *,
-  .faq__item
-  ) {
+  .has-anim
+    :is(
+      [data-animate],
+      .section-head,
+      .intro,
+      .btn,
+      .cta-banner,
+      .accreditations__row,
+      .services__grid,
+      .testimonials__viewport,
+      .video__frame,
+      .page-hero__intro,
+      .about__grid > *,
+      .posts__grid > *,
+      .stats__grid > *,
+      .benefits__grid > *,
+      .contact__grid > *,
+      .team-grid > *,
+      .archive-grid > *,
+      .accreditations__logos > *,
+      .gallery > *,
+      .faq__item
+    ) {
     opacity: 1;
     transform: none;
     transition: none;

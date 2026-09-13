@@ -1,0 +1,272 @@
+/* ============================================================
+   BLOCK: text_block (text_block pattern)
+   Shared styles: front end + editor.
+   Vertical padding comes from Block Settings (.has-pt-* / .has-pb-*).
+============================================================ */
+
+.text-block {
+    position: relative;
+    background: var(--color-white, #fff);
+    color: var(--color-dark, #111827);
+}
+
+/* ---- Background variants ---------------------------------- */
+.text-block--bg-light {
+    background: var(--color-light, #f4f5f7);
+}
+
+.text-block--bg-dark {
+    background: var(--color-dark, #111827);
+    color: var(--color-white, #fff);
+}
+
+.text-block--bg-dark .text-block__highlight {
+    color: var(--color-white, #fff);
+}
+
+.text-block--bg-dark .text-block__body a {
+    color: var(--color-white, #fff);
+}
+
+/* Dark sections: outline buttons flip to the light variant so they stay visible. */
+.text-block--bg-dark .btn--outline {
+    --btn-fg: var(--color-white, #fff);
+    --btn-border: var(--color-white, #fff);
+    --btn-bg-hover: var(--color-white, #fff);
+    --btn-fg-hover: var(--color-dark, #111827);
+    --btn-border-hover: var(--color-white, #fff);
+}
+
+.text-block--bg-dark .btn--secondary {
+    --btn-bg: var(--color-white, #fff);
+    --btn-fg: var(--color-dark, #111827);
+    --btn-border: var(--color-white, #fff);
+    --btn-bg-hover: var(--color-light, #f4f5f7);
+    --btn-fg-hover: var(--color-dark, #111827);
+    --btn-border-hover: var(--color-light, #f4f5f7);
+}
+
+/* ---- Title ------------------------------------------------- */
+.text-block__title-holder {
+    margin-bottom: var(--space-md, 1.25rem);
+}
+
+.text-block__title {
+    margin: 0;
+    font-family: var(--font-heading, sans-serif);
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-weight: var(--font-weight-bold, 700);
+    letter-spacing: var(--letter-spacing-tight, -0.02em);
+    line-height: 1.15;
+}
+
+/* ---- Highlighted intro (post_title) ------------------------ */
+.text-block__highlight {
+    margin: 0 0 var(--space-md, 1.25rem);
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semibold, 600);
+    line-height: 1.4;
+    color: var(--color-accent-dark, #b01c5a);
+}
+
+/* ---- WYSIWYG body ------------------------------------------ */
+.text-block__body {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+}
+
+.text-block__body > :first-child {
+    margin-top: 0;
+}
+
+.text-block__body > :last-child {
+    margin-bottom: 0;
+}
+
+.text-block__body p,
+.text-block__body ul,
+.text-block__body ol {
+    margin: 0 0 var(--space-md, 1.25rem);
+}
+
+.text-block__body h3,
+.text-block__body h4 {
+    margin: var(--space-lg, 2rem) 0 var(--space-sm, 0.75rem);
+    font-family: var(--font-heading, sans-serif);
+    font-weight: var(--font-weight-bold, 700);
+    line-height: 1.25;
+}
+
+.text-block__body h3 { font-size: 1.375rem; }
+.text-block__body h4 { font-size: 1.125rem; }
+
+.text-block__body a {
+    color: var(--color-accent, #d7266f);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    transition: color var(--t-fast, 200ms ease);
+}
+
+.text-block__body a:hover {
+    color: var(--color-accent-dark, #b01c5a);
+}
+
+/* ---- Checklist --------------------------------------------- */
+.text-block__checklist {
+    list-style: none;
+    margin: var(--space-md, 1.25rem) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-sm, 0.75rem);
+}
+
+.text-block__checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm, 0.75rem);
+    line-height: 1.5;
+}
+
+.text-block__check {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.05em;
+    border-radius: 50%;
+    background: var(--color-accent, #d7266f);
+    color: var(--color-white, #fff);
+}
+
+.text-block__check svg {
+    width: 0.85rem;
+    height: 0.85rem;
+}
+
+/* ---- Layout: simple / simple-columns ---------------------- */
+.text-block__simple {
+    max-width: 48rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.text-block__simple .text-block__checklist-item {
+    text-align: left;
+}
+
+.text-block__simple--2-cols {
+    max-width: var(--container-max, 1240px);
+}
+
+.text-block__simple--2-cols .text-block__title-holder {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-block__simple--2-cols .text-block__content {
+    text-align: left;
+}
+
+.text-block__simple--2-cols .text-block__body {
+    column-count: 2;
+    column-gap: var(--space-xl, 3rem);
+}
+
+.text-block__simple--2-cols .text-block__body > * {
+    break-inside: avoid;
+}
+
+/* ---- Layout: columns / bk-columns ------------------------- */
+.text-block__columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl, 3rem);
+    align-items: center;
+}
+
+.text-block__column--content {
+    text-align: left;
+}
+
+/* Only one column (no image)? Let the content take the width of the simple layout. */
+.text-block__columns > .text-block__column--content:only-child {
+    grid-column: 1 / -1;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.text-block__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md, 0.75rem);
+}
+
+/* bk-columns: the image is a CSS background that fills the column height and
+   pulls out to the edge of the container so the text appears to overlap it. */
+.text-block__image-spacer {
+    width: 100%;
+    min-height: 24rem;
+    height: 100%;
+    border-radius: var(--radius-md, 0.75rem);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.text-block--bk-columns .text-block__columns,
+.text-block--bk-columns-reverse .text-block__columns {
+    align-items: stretch;
+}
+
+.text-block--bk-columns .text-block__column--content,
+.text-block--bk-columns-reverse .text-block__column--content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-lg, 2rem) 0;
+}
+
+@media (min-width: 992px) {
+    .text-block--bk-columns .text-block__image-spacer {
+        margin-left: calc(-1 * var(--space-gutter, 2rem));
+        width: calc(100% + var(--space-gutter, 2rem) + var(--space-md, 1.25rem));
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .text-block--bk-columns-reverse .text-block__image-spacer {
+        margin-right: calc(-1 * var(--space-gutter, 2rem));
+        margin-left: calc(-1 * var(--space-md, 1.25rem));
+        width: calc(100% + var(--space-gutter, 2rem) + var(--space-md, 1.25rem));
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+/* ---- Tablet and below: stack the columns ------------------ */
+@media (max-width: 991px) {
+    .text-block__columns {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-lg, 2rem);
+    }
+
+    .text-block__image-spacer {
+        min-height: 16rem;
+        height: auto;
+        aspect-ratio: 16 / 10;
+    }
+
+    .text-block--bk-columns .text-block__column--content,
+    .text-block--bk-columns-reverse .text-block__column--content {
+        padding: 0;
+    }
+
+    .text-block__simple--2-cols .text-block__body {
+        column-count: 1;
+    }
+}

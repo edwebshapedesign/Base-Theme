@@ -1,0 +1,87 @@
+{
+    "key": "group_block_settings",
+    "title": "Block Settings (clone source)",
+    "fields": [
+        {
+            "key": "field_block_settings_tab",
+            "label": "Block settings",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_block_settings_visible",
+            "label": "Show block on the front end",
+            "name": "block_visible",
+            "type": "true_false",
+            "instructions": "Turn off to keep the block in the editor but hide it from visitors.",
+            "required": 0,
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Visible",
+            "ui_off_text": "Hidden",
+            "wrapper": { "width": "" }
+        },
+        {
+            "key": "field_block_settings_padding_top",
+            "label": "Padding top",
+            "name": "padding_top",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "choices": {
+                "none": "None",
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large",
+                "xlarge": "Extra large"
+            },
+            "default_value": "medium",
+            "return_format": "value",
+            "ui": 0,
+            "allow_null": 0,
+            "multiple": 0,
+            "wrapper": { "width": "50" }
+        },
+        {
+            "key": "field_block_settings_padding_bottom",
+            "label": "Padding bottom",
+            "name": "padding_bottom",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "choices": {
+                "none": "None",
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large",
+                "xlarge": "Extra large"
+            },
+            "default_value": "medium",
+            "return_format": "value",
+            "ui": 0,
+            "allow_null": 0,
+            "multiple": 0,
+            "wrapper": { "width": "50" }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "acf-clone-source-never-shown"
+            }
+        ]
+    ],
+    "menu_order": 99,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": false,
+    "description": "Never shown directly. Clone it into a block's field group (Clone field → this group, display Seamless) and call theme_block_settings_classes() in render.php. Visibility is enforced automatically in blocks.php.",
+    "show_in_rest": 0,
+    "modified": 1788805000
+}

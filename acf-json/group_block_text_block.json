@@ -1,0 +1,264 @@
+{
+    "key": "group_block_text_block",
+    "title": "Block: Text Block",
+    "fields": [
+        {
+            "key": "field_text_block_tab_content",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_text_block_title",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Section heading, rendered as an H2.",
+            "required": 0
+        },
+        {
+            "key": "field_text_block_post_title",
+            "label": "Highlighted intro",
+            "name": "post_title",
+            "type": "text",
+            "instructions": "Optional larger, bold line shown above the main text.",
+            "required": 0
+        },
+        {
+            "key": "field_text_block_text",
+            "label": "Text",
+            "name": "text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_text_block_bullets",
+            "label": "Checklist",
+            "name": "bullets",
+            "type": "repeater",
+            "instructions": "Optional list of ticked points shown after the text.",
+            "required": 0,
+            "layout": "table",
+            "min": 0,
+            "max": 0,
+            "button_label": "Add item",
+            "collapsed": "field_text_block_bullet_text",
+            "sub_fields": [
+                {
+                    "key": "field_text_block_bullet_bold",
+                    "label": "Bold prefix",
+                    "name": "bold",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                },
+                {
+                    "key": "field_text_block_bullet_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "65"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_text_block_buttons",
+            "label": "Buttons",
+            "name": "buttons",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "layout": "block",
+            "min": 0,
+            "max": 3,
+            "button_label": "Add button",
+            "collapsed": "field_text_block_button_text",
+            "sub_fields": [
+                {
+                    "key": "field_text_block_button_text",
+                    "label": "Button text",
+                    "name": "button_text",
+                    "type": "text",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                },
+                {
+                    "key": "field_text_block_button_link",
+                    "label": "Button link",
+                    "name": "button_link",
+                    "type": "url",
+                    "required": 1,
+                    "wrapper": {
+                        "width": "35"
+                    }
+                },
+                {
+                    "key": "field_text_block_button_style",
+                    "label": "Style",
+                    "name": "button_style",
+                    "type": "select",
+                    "required": 0,
+                    "choices": {
+                        "btn--primary": "Primary",
+                        "btn--secondary": "Secondary",
+                        "btn--outline": "Outline"
+                    },
+                    "default_value": "btn--primary",
+                    "return_format": "value",
+                    "ui": 0,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "wrapper": {
+                        "width": "18"
+                    }
+                },
+                {
+                    "key": "field_text_block_button_arrow",
+                    "label": "Arrow",
+                    "name": "button_arrow",
+                    "type": "true_false",
+                    "required": 0,
+                    "default_value": 0,
+                    "ui": 1,
+                    "wrapper": {
+                        "width": "12"
+                    }
+                }
+            ]
+        },
+        {
+            "key": "field_text_block_tab_layout",
+            "label": "Layout",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_text_block_layout",
+            "label": "Layout",
+            "name": "layout",
+            "type": "select",
+            "instructions": "Simple layouts centre the title with the text below. Column layouts put the image beside the text. Background image layouts stretch the image to the full height of the section.",
+            "required": 1,
+            "choices": {
+                "simple": "Simple (centred text)",
+                "simple-columns": "Simple, text in two columns",
+                "columns": "Columns: image left, text right",
+                "columns-reverse": "Columns: text left, image right",
+                "bk-columns": "Background image left, text right",
+                "bk-columns-reverse": "Text left, background image right"
+            },
+            "default_value": "simple",
+            "return_format": "value",
+            "ui": 0,
+            "allow_null": 0,
+            "multiple": 0
+        },
+        {
+            "key": "field_text_block_image",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "Used by the column layouts only.",
+            "required": 0,
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "mime_types": "jpg,jpeg,png,webp,avif,svg",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_text_block_layout",
+                        "operator": "==",
+                        "value": "columns"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_text_block_layout",
+                        "operator": "==",
+                        "value": "columns-reverse"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_text_block_layout",
+                        "operator": "==",
+                        "value": "bk-columns"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_text_block_layout",
+                        "operator": "==",
+                        "value": "bk-columns-reverse"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_text_block_background",
+            "label": "Background",
+            "name": "background",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "choices": {
+                "white": "White",
+                "light": "Light grey",
+                "dark": "Dark"
+            },
+            "default_value": "white",
+            "return_format": "value",
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_text_block_block_settings",
+            "label": "Block settings",
+            "name": "block_settings",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "clone": [
+                "group_block_settings"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/text-block"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 0,
+    "modified": 1789200000
+}

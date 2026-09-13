@@ -25,12 +25,7 @@
   }, false);
 </script>
 
-<?php $footerscripts = get_field('footer_scripts','option'); ?>
-<?php if($footerscripts): ?>
-  <?php foreach($footerscripts as $footerscript): ?>
-    <?php echo $footerscript['script']; ?>
-  <?php endforeach; ?>
-<?php endif; ?>
+<?php // Footer scripts from Site Content → Site Scripts are output on wp_footer by functions.php. ?>
 
 <?php wp_footer(); ?>
 

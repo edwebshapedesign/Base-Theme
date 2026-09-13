@@ -3,9 +3,65 @@
 ============================================================ */
 :root {
   --white: #ffffff;
-  
+
+  /* Colours — swap these per client. Blocks read them via var(--color-*) with fallbacks. */
+  --color-white: #ffffff;
+  --color-light: #f4f5f7;
+  --color-dark: #111827;
+  --color-dark-lighter: #1f2937;
+  --color-muted: #4b5563;
+  --color-accent: #d7266f;
+  --color-accent-dark: #b01c5a;
+  --color-faded-black: #202020;   /* hero overlays / near-black backgrounds */
+  --color-orange: #f26a21;        /* secondary warm tint used in decorative gradients */
+  --color-star: #f6b21b;          /* star-rating fill */
+  --color-text-muted: #56708c;    /* standfirst / secondary copy */
+  --color-border: rgba(17, 24, 39, 0.14);
+  --color-light-alt: #f5f8fb;     /* card / media backdrop */
+  --color-accent-rgb: 215, 38, 111; /* rgb() of --color-accent, for translucent washes */
+  /* Section tints — pale washes used behind page headers etc. Swap per client. */
+  --color-bg-accent: #fbe4ee;
+  --color-bg-blue: #eef7ff;
+  --color-bg-rose: #fef7f8;
+  --color-bg-amber: #fffaf6;
+
+  /* Type */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-wide: 0.08em;
+
+  /* Spacing — general scale (margins, gaps, component padding) */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 5rem;
+  --space-4xl: 6rem;
+
+  /* Spacing — section (block) vertical padding scale + horizontal gutter */
+  --space-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --space-section-sm: clamp(2rem, 4vw, 3rem);
+  --space-section-md: clamp(3rem, 6vw, 5rem);
+  --space-section-lg: clamp(4rem, 8vw, 7rem);
+  --space-section-xl: clamp(5rem, 10vw, 9rem);
+
+  /* Shape */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --shadow-lg: 0 10px 15px rgba(17, 24, 39, 0.10), 0 4px 6px rgba(17, 24, 39, 0.05);
+  --radius-button: 999px;
+
+  --t-fast: 200ms ease;
   --t-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   --container-max: 1240px;
 }
 
@@ -21,11 +77,202 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  font-family: var(--font-body);
+  color: var(--color-dark);
+}
+
 .container {
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  /* padding: 0 var(--space-lg); */
+  padding: 0 var(--space-gutter);
   position:relative;
   z-index:4;
 }
+
+/* ============================================================
+  SHARED ELEMENTS (used by several blocks)
+============================================================ */
+
+/* Small label above a title */
+.small-title {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Star rating — <div class="star-rating [large]"><svg class="star [filled]">…</svg> x5</div> */
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+.star-rating .star {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: rgba(255, 255, 255, 0.3);
+}
+.star-rating .star.filled { fill: var(--color-star); }
+.star-rating.large .star { width: 1.4rem; height: 1.4rem; }
+
+/* Button group wrapper output by blocks */
+.button-holder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+  margin-top: var(--space-lg);
+}
+.button-holder.center { justify-content: center; }
+
+/* Badge / pill label — <span class="badge [accent|light|outline|dark]">…</span> */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+  padding: 0.25rem 0.6875rem;
+  border-radius: var(--radius-button);
+  border: 1px solid transparent;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+.badge.accent  { background: var(--color-accent); color: var(--color-white); }
+.badge.light   { background: var(--color-bg-accent); color: var(--color-accent-dark); }
+.badge.outline { background: transparent; border-color: var(--color-border); color: var(--color-text-muted); }
+.badge.dark    { background: var(--color-dark); color: var(--color-white); }
+
+/* Breadcrumbs — <nav class="breadcrumbs"><a>Home</a><span class="breadcrumb-sep">›</span>…<span class="breadcrumb-current">Page</span></nav> */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: var(--space-md);
+  font-size: 0.82rem;
+}
+.breadcrumbs a { color: var(--color-muted); text-decoration: none; transition: color var(--t-fast); }
+.breadcrumbs a:hover { color: var(--color-accent); }
+.breadcrumb-sep { color: var(--color-muted); opacity: 0.5; }
+.breadcrumb-current { color: var(--color-dark); font-weight: var(--font-weight-semibold); }
+
+/* ============================================================
+  BUTTONS (shared component — components/buttons.php)
+  Variants set --btn-* tokens; the base rule paints them.
+============================================================ */
+.btn {
+  --btn-bg: var(--color-accent);
+  --btn-fg: var(--color-white);
+  --btn-border: var(--color-accent);
+  --btn-bg-hover: var(--color-accent-dark);
+  --btn-fg-hover: var(--color-white);
+  --btn-border-hover: var(--color-accent-dark);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border: 2px solid var(--btn-border);
+  border-radius: var(--radius-button);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--t-fast), color var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+}
+
+/* Optional inline icon (e.g. arrow) inside a button */
+.btn svg {
+  width: 1.1em;
+  height: 1.1em;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: transform var(--t-fast);
+}
+.btn:hover svg { transform: translateX(3px); }
+
+/* Light variants for use on dark backgrounds */
+.btn--outline-light {
+  --btn-bg: transparent;
+  --btn-fg: var(--color-white);
+  --btn-border: var(--color-white);
+  --btn-bg-hover: var(--color-white);
+  --btn-fg-hover: var(--color-dark);
+  --btn-border-hover: var(--color-white);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--btn-bg-hover);
+  color: var(--btn-fg-hover);
+  border-color: var(--btn-border-hover);
+  transform: scale(1.02);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.btn--primary,
+.btn--gradient { /* .btn--gradient kept for backwards compatibility */
+  --btn-bg: var(--color-accent);
+  --btn-border: var(--color-accent);
+  --btn-bg-hover: var(--color-accent-dark);
+  --btn-border-hover: var(--color-accent-dark);
+}
+
+.btn--secondary {
+  --btn-bg: var(--color-dark);
+  --btn-border: var(--color-dark);
+  --btn-bg-hover: var(--color-dark-lighter);
+  --btn-border-hover: var(--color-dark-lighter);
+}
+
+.btn--outline {
+  --btn-bg: transparent;
+  --btn-fg: var(--color-dark);
+  --btn-border: var(--color-dark);
+  --btn-bg-hover: var(--color-dark);
+  --btn-fg-hover: var(--color-white);
+  --btn-border-hover: var(--color-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn:hover {
+    transition: none;
+    transform: none;
+  }
+}
+/* ============================================================
+  BLOCK SPACING UTILITIES
+  Set by the cloned "Block Settings" fields via
+  theme_block_settings_classes() in blocks.php. Blocks that use them
+  must not set their own vertical padding on the wrapper.
+============================================================ */
+.has-pt-none   { padding-top: 0; }
+.has-pt-small  { padding-top: var(--space-section-sm); }
+.has-pt-medium { padding-top: var(--space-section-md); }
+.has-pt-large  { padding-top: var(--space-section-lg); }
+.has-pt-xlarge { padding-top: var(--space-section-xl); }
+
+.has-pb-none   { padding-bottom: 0; }
+.has-pb-small  { padding-bottom: var(--space-section-sm); }
+.has-pb-medium { padding-bottom: var(--space-section-md); }
+.has-pb-large  { padding-bottom: var(--space-section-lg); }
+.has-pb-xlarge { padding-bottom: var(--space-section-xl); }

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": false,
+    "useRootPaddingAwareAlignments": false,
+    "layout": {
+      "contentSize": "720px",
+      "wideSize": "1240px"
+    },
+    "color": {
+      "custom": false,
+      "customGradient": false,
+      "customDuotone": false,
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "defaultDuotone": false,
+      "palette": [
+        { "slug": "white", "name": "White", "color": "#ffffff" },
+        { "slug": "light", "name": "Light", "color": "#f4f5f7" },
+        { "slug": "dark", "name": "Dark", "color": "#111827" },
+        { "slug": "dark-lighter", "name": "Dark (lighter)", "color": "#1f2937" },
+        { "slug": "muted", "name": "Muted", "color": "#4b5563" },
+        { "slug": "accent", "name": "Accent", "color": "#d7266f" },
+        { "slug": "accent-dark", "name": "Accent (dark)", "color": "#b01c5a" }
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "lineHeight": false,
+      "dropCap": false,
+      "fluid": false,
+      "fontFamilies": [
+        { "slug": "heading", "name": "Montserrat", "fontFamily": "'Montserrat', sans-serif" },
+        { "slug": "body", "name": "Source Sans 3", "fontFamily": "'Source Sans 3', sans-serif" }
+      ],
+      "fontSizes": [
+        { "slug": "small", "name": "Small", "size": "0.9rem" },
+        { "slug": "medium", "name": "Medium", "size": "1rem" },
+        { "slug": "large", "name": "Large", "size": "1.25rem" }
+      ]
+    },
+    "spacing": {
+      "customSpacing": false,
+      "units": ["px", "rem", "%", "vw"]
+    }
+  }
+}

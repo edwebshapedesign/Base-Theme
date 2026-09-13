@@ -1,0 +1,41 @@
+{
+    "key": "group_site_general",
+    "title": "General Options",
+    "fields": [
+        {
+            "key": "field_site_general_tab_branding",
+            "label": "Branding",
+            "name": "",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_site_general_logo",
+            "label": "Site logo",
+            "name": "site_logo",
+            "type": "image",
+            "instructions": "Shown in the header, linked to the homepage. SVG or transparent PNG, roughly 3:1 or wider. The image's alt text in the Media Library is used; if empty, the site name is used.",
+            "required": 0,
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "mime_types": "svg,png,webp,jpg,jpeg"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-content-general"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 0
+}

@@ -1,0 +1,191 @@
+/* ==========================================================================
+   TEMPLATE: Developer Guide (template-developer-guide.php)
+   Renders the theme's markdown documentation. Loaded on that template only.
+   ========================================================================== */
+
+.dev-guide {
+  padding: var(--space-section-sm) 0 var(--space-section-lg);
+  color: var(--color-dark, #111827);
+}
+
+.dev-guide-layout {
+  display: grid;
+  grid-template-columns: 16rem minmax(0, 1fr);
+  gap: var(--space-2xl, 4rem);
+  align-items: start;
+}
+
+@media (max-width: 899px) {
+  .dev-guide-layout { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* --- Contents ---------------------------------------------------------- */
+
+.dev-guide-toc {
+  position: sticky;
+  top: var(--space-lg, 2rem);
+  padding: var(--space-md, 1.25rem);
+  border: 1px solid var(--color-border, rgba(17, 24, 39, 0.14));
+  border-radius: var(--radius-md, 0.75rem);
+  background: var(--color-light-alt, #f5f8fb);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 899px) {
+  .dev-guide-toc { position: static; }
+}
+
+.dev-guide-toc-label {
+  margin: 0 0 var(--space-xs, 0.5rem);
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold, 700);
+  font-size: 0.75rem;
+  letter-spacing: var(--letter-spacing-wide, 0.08em);
+  text-transform: uppercase;
+  color: var(--color-text-muted, #56708c);
+}
+
+.dev-guide-toc ol {
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+}
+
+.dev-guide-toc li { margin: 0.35rem 0; }
+
+.dev-guide-toc a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dev-guide-toc a:hover { color: var(--color-accent, #d7266f); }
+
+.dev-guide-toc-source {
+  margin: var(--space-md, 1.25rem) 0 0;
+  padding-top: var(--space-sm, 0.75rem);
+  border-top: 1px solid var(--color-border, rgba(17, 24, 39, 0.14));
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #56708c);
+}
+
+/* --- Content ----------------------------------------------------------- */
+
+.dev-guide-content {
+  max-width: 72ch;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.dev-guide-content h1 {
+  margin: 0 0 var(--space-md, 1.25rem);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: var(--letter-spacing-tight, -0.02em);
+}
+
+.dev-guide-content h2 {
+  margin: var(--space-2xl, 4rem) 0 var(--space-md, 1.25rem);
+  padding-top: var(--space-md, 1.25rem);
+  border-top: 1px solid var(--color-border, rgba(17, 24, 39, 0.14));
+  font-size: 1.75rem;
+  scroll-margin-top: var(--space-lg, 2rem);
+}
+
+.dev-guide-content h3 {
+  margin: var(--space-xl, 3rem) 0 var(--space-sm, 0.75rem);
+  font-size: 1.25rem;
+  scroll-margin-top: var(--space-lg, 2rem);
+}
+
+.dev-guide-content p,
+.dev-guide-content ul,
+.dev-guide-content ol {
+  margin: 0 0 var(--space-md, 1.25rem);
+}
+
+.dev-guide-content li { margin: 0.35rem 0; }
+
+.dev-guide-content li > ul,
+.dev-guide-content li > ol {
+  margin: 0.35rem 0 0;
+}
+
+.dev-guide-content li.task { list-style: none; margin-left: -1.25rem; }
+.dev-guide-content li.task input { margin-right: 0.5rem; vertical-align: middle; }
+
+.dev-guide-content hr {
+  margin: var(--space-xl, 3rem) 0;
+  border: 0;
+  border-top: 1px solid var(--color-border, rgba(17, 24, 39, 0.14));
+}
+
+/* hr directly before an h2 would double up with the h2's own rule */
+.dev-guide-content hr + h2 { border-top: 0; padding-top: 0; margin-top: 0; }
+
+.dev-guide-content a { color: var(--color-accent, #d7266f); }
+
+/* --- Code -------------------------------------------------------------- */
+
+.dev-guide-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  padding: 0.1em 0.35em;
+  border-radius: 0.3em;
+  background: var(--color-light, #f4f5f7);
+  color: var(--color-dark-lighter, #1f2937);
+}
+
+.dev-guide-content pre {
+  margin: 0 0 var(--space-md, 1.25rem);
+  padding: var(--space-md, 1.25rem);
+  border-radius: var(--radius-md, 0.75rem);
+  background: var(--color-faded-black, #202020);
+  color: #e6e6e6;
+  overflow-x: auto;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+.dev-guide-content pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* --- Tables ------------------------------------------------------------ */
+
+.dev-guide-content .table-wrap {
+  margin: 0 0 var(--space-md, 1.25rem);
+  overflow-x: auto;
+}
+
+.dev-guide-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.dev-guide-content th,
+.dev-guide-content td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--color-border, rgba(17, 24, 39, 0.14));
+  text-align: left;
+  vertical-align: top;
+}
+
+.dev-guide-content th {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold, 700);
+  letter-spacing: var(--letter-spacing-wide, 0.08em);
+  text-transform: uppercase;
+  color: var(--color-text-muted, #56708c);
+  background: var(--color-light-alt, #f5f8fb);
+}
+
+/* --- Locked state ------------------------------------------------------ */
+
+.dev-guide-locked {
+  max-width: 40rem;
+  margin: var(--space-section-md) auto;
+  text-align: center;
+}

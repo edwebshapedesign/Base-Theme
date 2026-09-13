@@ -1,0 +1,284 @@
+{
+    "key": "group_site_scripts",
+    "title": "Scripts & Integrations",
+    "fields": [
+        {
+            "key": "field_site_scripts_tab_gtm",
+            "label": "Google Tag Manager",
+            "name": "",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_site_scripts_gtm_enabled",
+            "label": "Enable Google Tag Manager",
+            "name": "gtm_enabled",
+            "type": "true_false",
+            "instructions": "Outputs the GTM loader in <head> and the <noscript> fallback after <body>.",
+            "required": 0,
+            "default_value": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_site_scripts_gtm_id",
+            "label": "Container ID",
+            "name": "gtm_id",
+            "type": "text",
+            "instructions": "Found in Tag Manager next to the container name. You can paste it with or without the GTM- prefix.",
+            "required": 0,
+            "prepend": "GTM-",
+            "placeholder": "ABC1234",
+            "maxlength": 16,
+            "wrapper": { "width": "50" },
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_gtm_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_exclude_logged_in",
+            "label": "Exclude logged-in users",
+            "name": "tracking_exclude_logged_in",
+            "type": "true_false",
+            "instructions": "Skip GTM and Umami for anyone logged in to WordPress, so editing sessions don't pollute analytics.",
+            "required": 0,
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_site_scripts_tab_umami",
+            "label": "Umami",
+            "name": "",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_site_scripts_umami_enabled",
+            "label": "Enable Umami",
+            "name": "umami_enabled",
+            "type": "true_false",
+            "instructions": "Privacy-friendly analytics. Outputs a single deferred script tag in <head>.",
+            "required": 0,
+            "default_value": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_site_scripts_umami_website_id",
+            "label": "Website ID",
+            "name": "umami_website_id",
+            "type": "text",
+            "instructions": "From Umami → Settings → Websites → Edit. A UUID.",
+            "required": 0,
+            "placeholder": "9f1c2a3b-4d5e-6f70-8a9b-0c1d2e3f4a5b",
+            "wrapper": { "width": "50" },
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_umami_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_umami_script_url",
+            "label": "Script URL",
+            "name": "umami_script_url",
+            "type": "text",
+            "instructions": "Leave as the Umami Cloud default unless self-hosting.",
+            "required": 0,
+            "default_value": "https://cloud.umami.is/script.js",
+            "wrapper": { "width": "50" },
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_umami_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_umami_domains",
+            "label": "Only track these domains (optional)",
+            "name": "umami_domains",
+            "type": "text",
+            "instructions": "Comma-separated, e.g. example.co.uk,www.example.co.uk. Stops staging sites reporting into live analytics.",
+            "required": 0,
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_umami_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_tab_schema",
+            "label": "Schema",
+            "name": "",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_site_scripts_schema_enabled",
+            "label": "Output Organization + WebSite schema",
+            "name": "schema_enabled",
+            "type": "true_false",
+            "instructions": "Adds JSON-LD structured data to every page. Turn this OFF if an SEO plugin (e.g. Yoast) is already outputting Organization / WebSite schema, otherwise search engines see it twice.",
+            "required": 0,
+            "default_value": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_site_scripts_schema_org_type",
+            "label": "Organisation type",
+            "name": "schema_org_type",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "choices": {
+                "Organization": "Organization (default)",
+                "LocalBusiness": "LocalBusiness",
+                "ProfessionalService": "ProfessionalService",
+                "Corporation": "Corporation"
+            },
+            "default_value": "Organization",
+            "return_format": "value",
+            "ui": 0,
+            "allow_null": 0,
+            "multiple": 0,
+            "wrapper": { "width": "50" },
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_schema_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_schema_org_name",
+            "label": "Organisation name",
+            "name": "schema_org_name",
+            "type": "text",
+            "instructions": "Leave empty to use the Site Title.",
+            "required": 0,
+            "wrapper": { "width": "50" },
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_schema_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_schema_org_logo",
+            "label": "Logo for search results",
+            "name": "schema_org_logo",
+            "type": "image",
+            "instructions": "Leave empty to use the Site logo from General. Google prefers a square-ish PNG/JPG of at least 112×112px.",
+            "required": 0,
+            "return_format": "id",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "mime_types": "png,jpg,jpeg,webp",
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_schema_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_schema_phone",
+            "label": "Telephone",
+            "name": "schema_phone",
+            "type": "text",
+            "instructions": "International format, e.g. +44 20 1234 5678.",
+            "required": 0,
+            "wrapper": { "width": "50" },
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_schema_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_schema_email",
+            "label": "Email",
+            "name": "schema_email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "wrapper": { "width": "50" },
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_schema_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_schema_same_as",
+            "label": "Social / profile URLs (sameAs)",
+            "name": "schema_same_as",
+            "type": "repeater",
+            "instructions": "LinkedIn, Facebook, Instagram, X, YouTube, Companies House, Trustpilot…",
+            "required": 0,
+            "layout": "table",
+            "button_label": "Add URL",
+            "sub_fields": [
+                {
+                    "key": "field_site_scripts_schema_same_as_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "required": 1
+                }
+            ],
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_schema_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_schema_search",
+            "label": "Include site search action",
+            "name": "schema_search",
+            "type": "true_false",
+            "instructions": "Tells search engines the site has an internal search (WebSite → potentialAction).",
+            "required": 0,
+            "default_value": 1,
+            "ui": 1,
+            "conditional_logic": [
+                [ { "field": "field_site_scripts_schema_enabled", "operator": "==", "value": "1" } ]
+            ]
+        },
+        {
+            "key": "field_site_scripts_tab_custom",
+            "label": "Custom scripts",
+            "name": "",
+            "type": "tab",
+            "placement": "left"
+        },
+        {
+            "key": "field_site_scripts_message",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "message": "For anything not covered by the integrations on the left. Paste raw snippets exactly as supplied (including <script> tags). Header scripts are output first in <head> — before GTM — so consent managers belong here. Body scripts go immediately after <body>; footer scripts before </body>. These are output unescaped, so only paste code from sources you trust.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_site_scripts_header",
+            "label": "Header scripts",
+            "name": "header_scripts",
+            "type": "textarea",
+            "instructions": "Output early in <head>.",
+            "required": 0,
+            "rows": 8,
+            "new_lines": ""
+        },
+        {
+            "key": "field_site_scripts_body",
+            "label": "Body scripts",
+            "name": "body_scripts",
+            "type": "textarea",
+            "instructions": "Output immediately after the opening <body> tag.",
+            "required": 0,
+            "rows": 6,
+            "new_lines": ""
+        },
+        {
+            "key": "field_site_scripts_footer",
+            "label": "Footer scripts",
+            "name": "footer_scripts",
+            "type": "textarea",
+            "instructions": "Output before </body> (e.g. chat widgets).",
+            "required": 0,
+            "rows": 6,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [ { "param": "options_page", "operator": "==", "value": "site-content-scripts" } ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "show_in_rest": 0
+}

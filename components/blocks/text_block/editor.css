@@ -1,0 +1,12 @@
+/* Text Block: editor only styles (never shipped to visitors) */
+
+/* Faint outline so an empty or white-on-white block is easy to find on the canvas. */
+.wp-block-acf-text-block .text-block {
+    outline: 1px dashed rgba(0, 0, 0, 0.2);
+    outline-offset: -1px;
+}
+
+/* Editor canvas: full-width blocks otherwise sit inside the default content column. */
+.wp-block-acf-text-block.alignfull {
+    max-width: none;
+}
